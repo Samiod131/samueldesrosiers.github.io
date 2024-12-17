@@ -73,7 +73,7 @@ html, body {
 
 section {
   margin-top: 50px;
-  margin-bottom: 80px;
+  margin-bottom: 120px;
   padding: 20px;
   border-radius: 8px;
   background-color: #f4f4f4;
@@ -200,9 +200,8 @@ footer p {
   }
 
   footer {
-      font-size: 0.8rem;
+      font-size: 0.5rem;
       padding: 0 5px;
-      height: 25px;
   }
 }
 
