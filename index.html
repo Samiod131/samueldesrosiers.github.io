@@ -1,13 +1,76 @@
-<script>
-  window.onload = function() {
-    // Get the browser's language
-    const userLang = navigator.language || navigator.userLanguage;
-
-    // Redirect based on the language
-    if (userLang.startsWith('fr')) {
-      window.location.href = "/fr";
-    } else {
-      window.location.href = "/en";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samuel Desrosiers - Redirecting...</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #1f3d64 0%, #2a5182 100%);
+      color: white;
+      text-align: center;
     }
-  };
-</script>
+    .loading {
+      padding: 2rem;
+    }
+    .loading h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .loading p {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+    .links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .links a {
+      padding: 0.75rem 1.5rem;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .links a:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="loading">
+    <h1>Samuel Desrosiers</h1>
+    <p>Redirecting to your language version...</p>
+    <div class="links">
+      <a href="./en/">English</a>
+      <a href="./fr/">Français</a>
+    </div>
+  </div>
+  
+  <script>
+    window.onload = function() {
+      // Get the browser's language
+      const userLang = navigator.language || navigator.userLanguage;
+
+      // Redirect based on the language
+      setTimeout(() => {
+        if (userLang.startsWith('fr')) {
+          window.location.href = "./fr/";
+        } else {
+          window.location.href = "./en/";
+        }
+      }, 500); // Small delay so users can see the page
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found | Samuel Desrosiers</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    
+    .error-container {
+      max-width: 600px;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .error-code {
+      font-size: 8rem;
+      font-weight: 700;
+      color: #1f3d64;
+      margin: 0;
+      line-height: 1;
+    }
+    
+    .error-message {
+      font-size: 1.5rem;
+      color: #333;
+      margin: 1rem 0;
+    }
+    
+    .error-description {
+      font-size: 1rem;
+      color: #666;
+      margin: 1.5rem 0;
+      line-height: 1.6;
+    }
+    
+    .error-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    
+    .error-links a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #1f3d64;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.25s ease-in-out;
+    }
+    
+    .error-links a:hover {
+      background: #2a5182;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    @media (max-width: 480px) {
+      .error-code {
+        font-size: 5rem;
+      }
+      
+      .error-message {
+        font-size: 1.25rem;
+      }
+      
+      .error-container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="error-container">
+    <h1 class="error-code">404</h1>
+    <h2 class="error-message">Page Not Found</h2>
+    <p class="error-description">
+      Oops! The page you're looking for doesn't exist. It might have been moved or deleted.
+    </p>
+    <div class="error-links">
+      <a href="/en/">English Site</a>
+      <a href="/fr/">Site Français</a>
+    </div>
+  </div>
+</body>
+</html>
