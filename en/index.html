@@ -8,9 +8,21 @@
   <meta name="description" content="Samuel Desrosiers - Physicist and Programmer specializing in tensor networks, combinatorial optimization, and animation/VFX pipeline development.">
   <meta name="keywords" content="Samuel Desrosiers, Physicist, Programmer, Python, C++, Tensor Networks, VFX, Animation, Pipeline TD">
   <meta name="author" content="Samuel Desrosiers">
+  <meta name="theme-color" content="#1f3d64">
+  <meta property="og:title" content="Samuel Desrosiers - Physicist and Programmer">
+  <meta property="og:description" content="Physicist and Programmer specializing in tensor networks, combinatorial optimization, and animation/VFX pipeline development.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://samueldesrosiers.github.io/en/">
+  <link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/images/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/images/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/images/favicon/site.webmanifest" />
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
   <!-- Sidebar -->
   <div class="sidebar">
     <header>
@@ -34,17 +46,17 @@
         </a>
       </div>
     </header>    
-    <nav>
-      <a href="#" onclick="showSection('about')">About</a>
-      <a href="#" onclick="showSection('experience')">Experience</a>
-      <a href="#" onclick="showSection('education')">Education</a>
-      <a href="#" onclick="showSection('projects')">Projects</a>
-      <a href="#" onclick="showSection('me')">More of Me</a>
+    <nav aria-label="Main navigation">
+      <a href="#about" data-section="about">About</a>
+      <a href="#experience" data-section="experience">Experience</a>
+      <a href="#education" data-section="education">Education</a>
+      <a href="#projects" data-section="projects">Projects</a>
+      <a href="#me" data-section="me">More of Me</a>
     </nav>
   </div>
 
   <!-- Main Content -->
-  <div class="main-content">
+  <main class="main-content" id="main-content" role="main">
     <!-- About Section -->
     <section id="about">
       <h2>Hello there!</h2>
@@ -98,7 +110,7 @@
       <h2>Experience</h2>
       
       <h3 class="section-divider">Employment</h3>
-      
+
   <article>
     <div class="entry-header">
       <div class="years">2023 – 2025</div>
@@ -150,7 +162,7 @@
   </article>
   
   <h3 class="section-divider">Research Internships</h3>
-  
+
 
   <article>
     <div class="entry-header">
@@ -213,7 +225,7 @@
     <section id="projects" class="hidden">
       <h2>Projects</h2>
       
-      <p>Feel free to check my <a href="https://github.com/Samiod131" target="_blank" rel="noopener noreferrer">GitHub</a> and <a href="https://scholar.google.com/citations?user=Ph0r6bAAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a> to know more about what I worked on.</p>
+      <p>Check my <a href="https://github.com/Samiod131" target="_blank" rel="noopener noreferrer">GitHub</a> and <a href="https://scholar.google.com/citations?user=Ph0r6bAAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a> to know more about what I worked on.</p>
       
       <h3 class="section-divider">Recent Projects</h3>
 
@@ -296,16 +308,15 @@
       <p>I am generally interested in solving complex problems, societal issues and popularization. I particularly like how images convey moods and information. That is a reason why I joined the world of Animation/VFX after my education in physics.</p>
     </section>
     
-    </div>
+  </main>
 
-
-    <footer>
-      <p>
-        &copy; 2025 Samuel Desrosiers |
-        <a href="/fr/">Français</a> | 
-        <a href="/en/">English</a>
-      </p>
-    </footer>
+  <footer role="contentinfo">
+    <p>
+      &copy; 2025 Samuel Desrosiers |
+      <a href="/fr/">Français</a> | 
+      <a href="/en/">English</a>
+    </p>
+  </footer>
 
   <script src="../js/script.js"></script>
 </body>

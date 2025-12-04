@@ -8,9 +8,21 @@
   <meta name="description" content="Samuel Desrosiers - Physicien et Programmeur spécialisé en réseaux de tenseurs, optimisation combinatoire et développement de pipeline d'animation/VFX.">
   <meta name="keywords" content="Samuel Desrosiers, Physicien, Programmeur, Python, C++, Réseaux de Tenseurs, VFX, Animation, Pipeline TD">
   <meta name="author" content="Samuel Desrosiers">
+  <meta name="theme-color" content="#1f3d64">
+  <meta property="og:title" content="Samuel Desrosiers - Physicien et Programmeur">
+  <meta property="og:description" content="Physicien et Programmeur spécialisé en réseaux de tenseurs, optimisation combinatoire et développement de pipeline d'animation/VFX.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://samueldesrosiers.github.io/fr/">
+  <link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/images/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/images/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/images/favicon/site.webmanifest" />
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+  
   <!-- Barre latérale -->
   <div class="sidebar">
     <header>
@@ -34,17 +46,17 @@
         </a>
       </div>
     </header>
-    <nav>
-      <a href="#" onclick="showSection('about')">À propos</a>
-      <a href="#" onclick="showSection('experience')">Expérience</a>
-      <a href="#" onclick="showSection('education')">Éducation</a>
-      <a href="#" onclick="showSection('projects')">Projets</a>
-      <a href="#" onclick="showSection('me')">Plus sur moi</a>
+    <nav aria-label="Navigation principale">
+      <a href="#about" data-section="about">À propos</a>
+      <a href="#experience" data-section="experience">Expérience</a>
+      <a href="#education" data-section="education">Éducation</a>
+      <a href="#projects" data-section="projects">Projets</a>
+      <a href="#me" data-section="me">Plus sur moi</a>
     </nav>
   </div>
 
   <!-- Contenu principal -->
-  <div class="main-content">
+  <main class="main-content" id="main-content" role="main">
     <!-- Section À propos -->
     <section id="about">
       <h2>Bonjour à vous!</h2>
@@ -71,7 +83,7 @@
       <article>
         <div class="entry-header">
           <div class="years">2020 – 2022</div>
-          <h3 class="title" class="section-divider">Maîtrise en Physique</h3>
+          <h3>Maîtrise en Physique</h3>
         </div>
         <p><strong>Université de Sherbrooke</strong></p>
         <p>Optimisation combinatoire avec réseaux de tenseurs.</p>
@@ -85,7 +97,7 @@
       <article>
         <div class="entry-header">
           <div class="years">2015 – 2019</div>
-          <h3 class="title" class="section-divider">Baccalauréat en Physique</h3>
+          <h3>Baccalauréat en Physique</h3>
         </div>
         <p><strong>Université de Sherbrooke</strong></p>
         <p>Programme coopératif.</p>
@@ -97,7 +109,6 @@
       <h2>Expérience</h2>
       
       <h3 class="section-divider">Emploi</h3>
-      <br>
 
       <article>
         <div class="entry-header">
@@ -152,7 +163,6 @@
       
 
       <h3 class="section-divider">Stages de Recherche</h3>
-      <br>
 
       <article>
         <div class="entry-header">
@@ -215,7 +225,7 @@
     <section id="projects" class="hidden">
       <h2>Projets</h2>
       
-      <p>N'hésitez pas à consulter mon <a href="https://github.com/Samiod131" target="_blank" rel="noopener noreferrer">GitHub</a> et <a href="https://scholar.google.com/citations?user=Ph0r6bAAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a> pour en savoir plus sur mes travaux.</p>
+      <p>Consultez mon <a href="https://github.com/Samiod131" target="_blank" rel="noopener noreferrer">GitHub</a> et <a href="https://scholar.google.com/citations?user=Ph0r6bAAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a> pour en savoir plus sur mes travaux.</p>
       
       <h3 class="section-divider">Projets récents</h3>
       
@@ -283,7 +293,7 @@
           <div class="years">2020-2021</div>
           <h3><a href="https://github.com/Samiod131/TNTools" target="_blank" rel="noopener noreferrer">TNTools</a></h3>
         </div>
-        <p>Un petit ensemble d'outils en un fichier pour traiter des problèmes classiques (non-quantiques) avec des réseaux de tenseurs. Ceux-ci ont été conçus pour régler des problèmes d'optimisation combinatoire.</p>
+        <p>Un petit ensemble d'outils en un fichier pour traiter des problèmes d'optimisation combinatoire avec des réseaux de tenseurs. Ceux-ci ont été conçus pour régler des problèmes d'optimisation combinatoire.</p>
       </article>
     </section>
     
@@ -299,29 +309,16 @@
       <p>Je suis généralement intéressé par la résolution de problèmes complexes, les enjeux sociaux et la vulgarisation. J'apprécie particulièrement la manière dont les images véhiculent des émotions et des informations. C'est une des raisons pour lesquelles j'ai rejoint le monde de l'Animation/VFX après ma formation en physique.</p>
     </section>
 
-  </div>
+  </main>
     
+  <footer role="contentinfo">
+    <p>
+      &copy; 2025 Samuel Desrosiers |
+      <a href="/fr/">Français</a> | 
+      <a href="/en/">English</a>
+    </p>
+  </footer>
 
-
-    <footer>
-      <p>
-        &copy; 2025 Samuel Desrosiers |
-        <a href="/fr/">Français</a> | 
-        <a href="/en/">English</a>
-      </p>
-    </footer>
-
-
-
-    <script>
-      function showSection(sectionId) {
-        const sections = document.querySelectorAll('section');
-        sections.forEach(section => section.classList.add('hidden'));
-        const sectionToShow = document.getElementById(sectionId);
-        sectionToShow.classList.remove('hidden');
-      }
-      window.onload = () => showSection('about');
-    </script>
   <script src="../js/script.js"></script>
 </body>
 </html>

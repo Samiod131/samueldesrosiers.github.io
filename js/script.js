@@ -12,19 +12,24 @@
  * @param {string} sectionId - The ID of the section to show
  */
 function showSection(sectionId) {
-  // Get all sections
-  const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('.sidebar nav a');
-  
-  // Hide all sections with fade-out
-  sections.forEach(section => {
-    section.classList.add('hidden');
-    section.classList.remove('fade-in');
-  });
-  
-  // Show selected section with fade-in animation
-  const targetSection = document.getElementById(sectionId);
-  if (targetSection) {
+  try {
+    // Get all sections
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.sidebar nav a');
+    
+    // Hide all sections with fade-out
+    sections.forEach(section => {
+      section.classList.add('hidden');
+      section.classList.remove('fade-in');
+    });
+    
+    // Show selected section with fade-in animation
+    const targetSection = document.getElementById(sectionId);
+    if (!targetSection) {
+      console.warn(`Section with id "${sectionId}" not found`);
+      return;
+    }
+    
     targetSection.classList.remove('hidden');
     // Trigger reflow to restart animation
     void targetSection.offsetWidth;
@@ -35,60 +40,95 @@ function showSection(sectionId) {
     if (mainContent) {
       mainContent.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  }
-  
-  // Update active state in navigation
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('onclick')?.includes(sectionId)) {
-      link.classList.add('active');
+    
+    // Update active state in navigation
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      const linkSection = link.getAttribute('data-section');
+      if (linkSection === sectionId) {
+        link.classList.add('active');
+      }
+    });
+    
+    // Update URL hash without scrolling
+    if (history.pushState) {
+      history.pushState(null, null, `#${sectionId}`);
     }
-  });
-  
-  // Update URL hash without scrolling
-  if (history.pushState) {
-    history.pushState(null, null, `#${sectionId}`);
+    
+    // Store current section in localStorage
+    try {
+      localStorage.setItem('lastSection', sectionId);
+    } catch (e) {
+      // localStorage might be disabled
+      console.warn('Could not save to localStorage:', e);
+    }
+  } catch (error) {
+    console.error('Error in showSection:', error);
   }
-  
-  // Store current section in localStorage
-  localStorage.setItem('lastSection', sectionId);
 }
 
 /**
  * Initialize the page on load
  */
 function initializePage() {
-  // Check URL hash or localStorage for last viewed section
-  const hash = window.location.hash.substring(1);
-  const lastSection = localStorage.getItem('lastSection');
-  const defaultSection = 'about';
-  
-  let sectionToShow = defaultSection;
-  
-  if (hash && document.getElementById(hash)) {
-    sectionToShow = hash;
-  } else if (lastSection && document.getElementById(lastSection)) {
-    sectionToShow = lastSection;
-  }
-  
-  showSection(sectionToShow);
-  
-  // Add keyboard navigation
-  document.addEventListener('keydown', handleKeyboardNavigation);
-  
-  // Handle browser back/forward buttons
-  window.addEventListener('popstate', function() {
+  try {
+    // Check URL hash or localStorage for last viewed section
     const hash = window.location.hash.substring(1);
-    if (hash && document.getElementById(hash)) {
-      showSection(hash);
+    let lastSection;
+    try {
+      lastSection = localStorage.getItem('lastSection');
+    } catch (e) {
+      // localStorage might be disabled
+      lastSection = null;
     }
-  });
-  
-  // Add animation on scroll for articles
-  observeArticles();
-  
-  // Initialize tooltips if any
-  initializeTooltips();
+    const defaultSection = 'about';
+    
+    let sectionToShow = defaultSection;
+    
+    if (hash && document.getElementById(hash)) {
+      sectionToShow = hash;
+    } else if (lastSection && document.getElementById(lastSection)) {
+      sectionToShow = lastSection;
+    }
+    
+    showSection(sectionToShow);
+    
+    // Add click handlers for navigation links
+    const navLinks = document.querySelectorAll('.sidebar nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const section = this.getAttribute('data-section');
+        if (section) {
+          showSection(section);
+        }
+      });
+    });
+    
+    // Add keyboard navigation
+    document.addEventListener('keydown', handleKeyboardNavigation);
+    
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', function() {
+      const hash = window.location.hash.substring(1);
+      if (hash && document.getElementById(hash)) {
+        showSection(hash);
+      }
+    });
+    
+    // Add animation on scroll for articles
+    observeArticles();
+    
+    // Initialize tooltips if any
+    initializeTooltips();
+  } catch (error) {
+    console.error('Error initializing page:', error);
+    // Fallback: show default section
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      aboutSection.classList.remove('hidden');
+    }
+  }
 }
 
 /**
@@ -275,35 +315,3 @@ if (document.readyState === 'loading') {
 } else {
   initializePage();
 }
-
-// Add CSS animations dynamically
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes slideInRight {
-    from {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  
-  @keyframes slideOutRight {
-    from {
-      transform: translateX(0);
-      opacity: 1;
-    }
-    to {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-  }
-`;
-document.head.appendChild(style);
-
-// Export functions for global use
-window.showSection = showSection;
-window.smoothScrollTo = smoothScrollTo;
-window.copyEmail = copyEmail;

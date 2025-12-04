@@ -433,7 +433,7 @@ article strong {
 .tech-tag {
   font-family: var(--font-mono);
   font-size: var(--font-size-sm);
-  color: rgb(194, 148, 9);
+  color: #c2940b;
   background: rgba(255, 193, 7, 0.144);
   padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: var(--radius-sm);
@@ -449,6 +449,24 @@ article strong {
   margin: var(--spacing-xxl) 0 var(--spacing-xl) 0;
   padding-bottom: var(--spacing-sm);
   border-bottom: 2px solid var(--color-bg-tertiary);
+}
+
+/* Skip Link for Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-secondary);
+  color: var(--color-text-primary);
+  padding: var(--spacing-xs) var(--spacing-md);
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 100;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 0;
 }
 
 /* ========================================
@@ -480,6 +498,47 @@ footer a {
 footer a:hover {
   color: var(--color-text-light);
   text-decoration: none;
+}
+
+/* ========================================
+   Focus Styles for Accessibility
+   ======================================== */
+.sidebar nav a:focus,
+.icon:focus,
+.resume-links a:focus,
+article h3 a:focus,
+footer a:focus {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+.sidebar nav a:focus {
+  outline-offset: -2px;
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
 }
 
 /* ========================================
