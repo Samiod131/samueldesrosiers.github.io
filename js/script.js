@@ -136,7 +136,7 @@ function initializePage() {
  * @param {KeyboardEvent} e - The keyboard event
  */
 function handleKeyboardNavigation(e) {
-  const sections = ['about', 'experience', 'education', 'projects', 'me'];
+  const sections = ['about', 'experience', 'education', 'projects', 'outreach', 'me'];
   const currentHash = window.location.hash.substring(1) || 'about';
   const currentIndex = sections.indexOf(currentHash);
   
